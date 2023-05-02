@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     ports:
-      - 80:80/tcp
+      - "80:80/tcp"
     volumes:
       - /opt/docker-persistence/nginx-php-fpm/nginx/conf.d:/etc/nginx/conf.d
       - /opt/docker-persistence/nginx-php-fpm/nginx/logs:/var/log/nginx

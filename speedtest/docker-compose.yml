@@ -7,4 +7,4 @@ services:
     restart: unless-stopped
     network_mode: bridge
     ports:
-      - 18080:80/tcp
+      - "18080:80/tcp"
