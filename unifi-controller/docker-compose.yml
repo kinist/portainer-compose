@@ -1,0 +1,26 @@
+version: '3'
+services:
+  unifi-controller:
+    image: linuxserver/unifi-controller:6.5.55
+    container_name: unifi-controller
+    hostname: ubnt
+    network_mode: bridge
+    restart: unless-stopped
+    environment:
+      - PUID=0
+      - PGID=0
+      - MEM_LIMIT=1024 #optional
+      - MEM_STARTUP=1024 #optional
+    volumes:
+      - /opt/docker-persistence/unifi-controller/config:/config
+    ports:
+      - 3478:3478/udp
+      - 10001:10001/udp
+      - 8080:8080/tcp
+      - 8443:8443/tcp
+      #- 1900:1900/udp #optional
+      #- 8843:8843 #optional
+      #- 8880:8880 #optional
+      #- 6789:6789 #optional
+      #- 5514:5514/udp #optional
+    
