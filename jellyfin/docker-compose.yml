@@ -1,0 +1,20 @@
+version: '3'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    hostname: jellyfinserver
+    user: 0:0
+    network_mode: bridge
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/docker-persistence/jellyfin/config:/config
+      - /opt/docker-persistence/jellyfin/cache:/cache
+      - /mnt/rdmdisk/myserver/storage/01.Media:/media
+    ports:
+      - "18096:8096/tcp" # HTTP port
+      #- 8920:8920 # HTTPS port
+    #restart: unless-stopped
+    # Optional - alternative address used for autodiscovery
+    #environment:
+    #  - JELLYFIN_PublishedServerUrl=http://example.com
