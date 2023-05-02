@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.23.2
+    container_name: nginx
+    restart: unless-stopped
+    network_mode: bridge
+    links:
+      - php-fpm
+    depends_on:
+      - php-fpm
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 80:80/tcp
+    volumes:
+      - /opt/docker-persistence/nginx-php-fpm/nginx/conf.d:/etc/nginx/conf.d
+      - /opt/docker-persistence/nginx-php-fpm/nginx/logs:/var/log/nginx
+      - /opt/docker-persistence/nginx-php-fpm/html:/usr/share/nginx/html
+      
+  php-fpm:
+    image: php:8.1-fpm
+    container_name: php-fpm
+    restart: unless-stopped
+    network_mode: bridge
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /opt/docker-persistence/nginx-php-fpm/html:/var/www/html

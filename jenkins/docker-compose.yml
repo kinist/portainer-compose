@@ -12,4 +12,4 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - /opt/docker/persistence/jenkins/jenkins_home:/var/jenkins_home    
+      - /opt/docker-persistence/jenkins/jenkins_home:/var/jenkins_home
