@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  filebrowser:
+    image: filebrowser/filebrowser:v2.23.0
+    container_name: filebrowser
+    hostname: filebrowser
+    restart: unless-stopped
+    network_mode: bridge
+    #user: 0:0
+    ports: 
+      - "38080:80"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/docker-persistence/srv:/srv
+      - /opt/docker-persistence/.filebrowser.json:/.filebrowser.json
+      - /opt/docker-persistence/data/database.db:/data/database.db
+      - /opt/docker-persistence/data/domain_nopass.key:/data/domain_nopass.key
+      - /opt/docker-persistence/data/domain.cer:/data/domain.cer
+      - /opt/docker-persistence/data/run.log:/data/run.log

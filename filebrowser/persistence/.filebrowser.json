@@ -1,0 +1,11 @@
+{
+    "address": "",
+    "port": 80,
+    "locale": "zh-cn",
+    "baseURL": "",
+    "root": "/srv",
+    "log": "/data/run.log",
+    "database": "/data/database.db",
+    "cert": "/data/domain.cer",
+    "key": "/data/domain_nopass.key"
+  }
