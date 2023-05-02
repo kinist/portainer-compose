@@ -1,0 +1,19 @@
+version: '3'
+services:
+  portainer-ce:
+    image: portainer/portainer-ce:linux-amd64-2.18.2
+    container_name: portainer-ce
+    hostname: portainer-ce
+    restart: always
+    network_mode: bridge
+    ports:
+      - 8000:8000/tcp
+      - 9443:9443/tcp
+#    environment:
+#      - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
