@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins-lts:
+    image: jenkins/jenkins:lts-jdk11
+    container_name: jenkins-lts
+    hostname: jenkins
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8080:8080/tcp
+      - 50000:50000/tcp
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /opt/docker/persistence/jenkins/jenkins_home:/var/jenkins_home    
