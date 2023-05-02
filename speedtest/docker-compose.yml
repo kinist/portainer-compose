@@ -1,0 +1,8 @@
+version: '3'
+services:
+  speedtest:
+    image: adolfintel/speedtest:latest
+    container_name: speedtest
+    hostname: speedtest
+    restart: unless-stopped
+    network_mode: bridge
