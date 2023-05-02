@@ -6,3 +6,5 @@ services:
     hostname: speedtest
     restart: unless-stopped
     network_mode: bridge
+    ports:
+      - 18080:80/tcp
