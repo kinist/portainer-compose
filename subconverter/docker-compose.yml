@@ -1,0 +1,28 @@
+version: '3'
+services:
+  subweb:
+    image: stilleshan/subweb:latest
+    container_name: subweb
+    hostname: subweb
+    network_mode: bridge
+    restart: unless-stopped
+    ports:
+      - "27080:80/tcp"
+    environment:
+      - SITE_NAME=TestWebsite
+      - API_URL=http://8.135.53.90:27500
+    volumes:
+      - /etc/localtime:/etc/localtime
+    depends_on:
+      - subconverter
+
+  subconverter:
+    image: tindy2013/subconverter:latest
+    container_name: subconverter
+    hostname: subconverter
+    network_mode: bridge
+    restart: unless-stopped
+    ports:
+      - "25500:25500/tcp"    
+    volumes:
+      - /etc/localtime:/etc/localtime
