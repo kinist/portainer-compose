@@ -10,7 +10,7 @@ services:
       - PUID=0
       - PGID=0
       - TZ=Asia/Shanghai
-      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      #- TRANSMISSION_WEB_HOME=/combustion-release/ #optional
       - USER=transmission #optional
       - PASS=rabbit3126 #optional
 #      - WHITELIST=iplist #optional
