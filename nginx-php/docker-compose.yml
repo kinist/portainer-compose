@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: nginx:1.23.2
+    image: nginx:latest
     container_name: nginx
     restart: unless-stopped
     hostname: nginx
@@ -20,7 +20,8 @@ services:
       - /opt/docker-persistence/nginx-php-fpm/html:/usr/share/nginx/html
       
   php-fpm:
-    image: php:8.1-fpm
+    #image: php:8.1-fpm
+    image: php:8-fpm-alpine
     container_name: php-fpm
     restart: unless-stopped
     hostname: php-fpm
